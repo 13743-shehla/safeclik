@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import {
   Search,
@@ -16,27 +15,21 @@ import { mockOSINTScanResult } from '../../data/mockData';
 import { OSINTScanResult } from '../../types';
 import { Badge } from '../../components/Badge';
 
-
-
-  const handleScan = (e: React.FormEvent) => {
-    e.preventDefault();
-    setScanning(true);
-    setTimeout(() => {
-      const currentDomain = domainInput.trim() export const OSINTPage: React.FC = () => {
+export const OSINTPage: React.FC = () => {
   const [domainInput, setDomainInput] = useState('example.com');
 
   // Məlumatlardakı acmecorp.com ifadələrini dinamik olaraq dəyişən köməkçi funksiya
-  const getFormattedMockData = (domain: string) => ({
+  const getFormattedMockData = (domain: string): OSINTScanResult => ({
     ...mockOSINTScanResult,
     domain: domain,
     mail_security: {
       ...mockOSINTScanResult.mail_security,
       details: mockOSINTScanResult.mail_security.details.replaceAll('acmecorp.com', domain)
     },
-    vulnerability_indicators: mockOSINTScanResult.vulnerability_indicators.map(item => 
+    vulnerability_indicators: mockOSINTScanResult.vulnerability_indicators.map(item =>
       item.replaceAll('acmecorp.com', domain)
     ),
-    recommendations: mockOSINTScanResult.recommendations.map(item => 
+    recommendations: mockOSINTScanResult.recommendations.map(item =>
       item.replaceAll('acmecorp.com', domain)
     )
   });
@@ -57,22 +50,6 @@ import { Badge } from '../../components/Badge';
           ...mockOSINTScanResult.mail_security,
           details: `v=DMARC1; p=reject; rua=mailto:dmarc-reports@${currentDomain}`
         }
-      });
-      setScanning(false);
-    }, 1200);
-  };|| 'example.com';
-      setScanResult({
-        ...mockOSINTScanResult,
-        domain: currentDomain,
-        scan_date: new Date().toISOString(),
-        exposure_score: Math.floor(Math.random() * 30) + 20,
-        mail_security: {
-          ...mockOSINTScanResult.mail_security,
-          details: `v=DMARC1; p=reject; rua=mailto:dmarc-reports@${currentDomain}`
-        },
-        vulnerability_indicators: mockOSINTScanResult.vulnerability_indicators.map(item =>
-          item.replaceAll('acmecorp.com', currentDomain)
-        )
       });
       setScanning(false);
     }, 1200);
