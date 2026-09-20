@@ -1,0 +1,1 @@
+# SafeClick Backend Application

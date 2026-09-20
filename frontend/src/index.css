@@ -1,0 +1,55 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 antialiased selection:bg-cyan-500 selection:text-slate-950;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Cyber card glassmorphism */
+.cyber-card {
+  @apply bg-slate-900/80 backdrop-blur-md border border-slate-800 rounded-xl shadow-lg transition-all duration-200;
+}
+
+.cyber-card-hover {
+  @apply hover:border-cyan-500/50 hover:shadow-cyan-500/10 hover:shadow-xl;
+}
+
+.cyber-gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400;
+}
+
+.cyber-gradient-accent {
+  @apply bg-gradient-to-r from-cyan-500 to-blue-600;
+}
+
+.cyber-glow {
+  box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.3);
+}
+
+.cyber-glow-danger {
+  box-shadow: 0 0 25px -5px rgba(239, 68, 68, 0.3);
+}
+
+.cyber-glow-success {
+  box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.3);
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
