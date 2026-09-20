@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import {
   Search,
@@ -16,19 +17,37 @@ import { OSINTScanResult } from '../../types';
 import { Badge } from '../../components/Badge';
 
 export const OSINTPage: React.FC = () => {
-  const [domainInput, setDomainInput] = useState('acmecorp.com');
-  const [scanResult, setScanResult] = useState<OSINTScanResult>(mockOSINTScanResult);
+  const [domainInput, setDomainInput] = useState('example.com');
+  const [scanResult, setScanResult] = useState<OSINTScanResult>({
+    ...mockOSINTScanResult,
+    domain: 'example.com',
+    mail_security: {
+      ...mockOSINTScanResult.mail_security,
+      details: mockOSINTScanResult.mail_security.details.replaceAll('acmecorp.com', 'example.com')
+    },
+    vulnerability_indicators: mockOSINTScanResult.vulnerability_indicators.map(item => 
+      item.replaceAll('acmecorp.com', 'example.com')
+    )
+  });
   const [scanning, setScanning] = useState(false);
 
   const handleScan = (e: React.FormEvent) => {
     e.preventDefault();
     setScanning(true);
     setTimeout(() => {
+      const currentDomain = domainInput.trim() || 'example.com';
       setScanResult({
         ...mockOSINTScanResult,
-        domain: domainInput,
+        domain: currentDomain,
         scan_date: new Date().toISOString(),
         exposure_score: Math.floor(Math.random() * 30) + 20,
+        mail_security: {
+          ...mockOSINTScanResult.mail_security,
+          details: `v=DMARC1; p=reject; rua=mailto:dmarc-reports@${currentDomain}`
+        },
+        vulnerability_indicators: mockOSINTScanResult.vulnerability_indicators.map(item =>
+          item.replaceAll('acmecorp.com', currentDomain)
+        )
       });
       setScanning(false);
     }, 1200);
@@ -57,7 +76,7 @@ export const OSINTPage: React.FC = () => {
             <input
               type="text"
               required
-              placeholder="e.g. acmecorp.com"
+              placeholder="e.g. example.com"
               value={domainInput}
               onChange={(e) => setDomainInput(e.target.value)}
               className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 pl-10 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 font-mono transition-colors"
