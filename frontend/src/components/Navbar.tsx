@@ -33,7 +33,7 @@ export const Navbar: React.FC = () => {
           <Link to="/" className="hover:text-cyan-400 transition-colors">Overview</Link>
           <a href="/#features" className="hover:text-cyan-400 transition-colors">Capabilities</a>
           <a href="/#simulation-preview" className="hover:text-cyan-400 transition-colors">Simulation Lab</a>
-          <a href="/#osint-preview" className="hover:text-cyan-400 transition-colors">OSINT Audit</a>
+          <Link to="/admin/osint" className="hover:text-cyan-400 transition-colors">OSINT Audit</Link>
         </nav>
 
         {/* Right action area */}
