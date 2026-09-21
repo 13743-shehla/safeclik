@@ -26,6 +26,7 @@ import { CampaignDetailPage } from './pages/admin/CampaignDetailPage';
 import { AdminTrainingsPage } from './pages/admin/AdminTrainingsPage';
 import { AdminReportsPage } from './pages/admin/AdminReportsPage';
 import { OSINTPage } from './pages/admin/OSINTPage';
+import { SimulationLab } from './pages/admin/SimulationLab';
 
 export function App() {
   return (
@@ -56,6 +57,7 @@ export function App() {
             <Route path="/admin/trainings" element={<AdminTrainingsPage />} />
             <Route path="/admin/reports" element={<AdminReportsPage />} />
             <Route path="/admin/osint" element={<OSINTPage />} />
+            <Route path="/admin/simulation-lab" element={<SimulationLab />} />
           </Route>
 
           {/* Fallback */}
