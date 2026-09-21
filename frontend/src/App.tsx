@@ -57,8 +57,11 @@ export function App() {
             <Route path="/admin/trainings" element={<AdminTrainingsPage />} />
             <Route path="/admin/reports" element={<AdminReportsPage />} />
             <Route path="/admin/osint" element={<OSINTPage />} />
-            <Route path="/admin/simulation-lab" element={<SimulationLab />} />
+            
+            {/* Simulation Lab Routes (Həm /simulation, həm /simulation-lab üçün) */}
+            <Route path="/simulation" element={<SimulationLab />} />
             <Route path="/simulation-lab" element={<SimulationLab />} />
+            <Route path="/admin/simulation-lab" element={<SimulationLab />} />
           </Route>
 
           {/* Fallback */}
