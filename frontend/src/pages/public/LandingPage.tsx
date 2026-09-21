@@ -5,17 +5,10 @@ import {
   ShieldCheck,
   MailWarning,
   Award,
-  Zap,
   CheckCircle2,
   ArrowRight,
   Search,
-  Users,
-  Lock,
-  ChevronRight,
-  BarChart2,
-  Terminal,
-  ExternalLink,
-  Flame
+  ChevronRight
 } from 'lucide-react';
 import { Navbar } from '../../components/Navbar';
 import { Badge } from '../../components/Badge';
@@ -39,7 +32,7 @@ export const LandingPage: React.FC = () => {
           <div className="flex justify-center mb-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-800/50 text-xs font-mono text-cyan-300 shadow-lg shadow-cyan-950/40">
               <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
-              <span>Next-Gen Enterprise Cyber Hygiene & Phishing Defense</span>
+              <span>Next-Gen Enterprise Cyber Hygiene &amp; Phishing Defense</span>
             </div>
           </div>
 
@@ -163,8 +156,10 @@ export const LandingPage: React.FC = () => {
           </div>
 
           {/* Tab selector */}
-          <div className="flex justify-center gap-2 mb-10">
+          <div className="flex justify-center gap-2 mb-10" role="tablist">
             <button
+              role="tab"
+              aria-selected={activeTab === 'simulation'}
               onClick={() => setActiveTab('simulation')}
               className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
                 activeTab === 'simulation'
@@ -176,6 +171,8 @@ export const LandingPage: React.FC = () => {
               <span>Phishing Simulator</span>
             </button>
             <button
+              role="tab"
+              aria-selected={activeTab === 'training'}
               onClick={() => setActiveTab('training')}
               className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
                 activeTab === 'training'
@@ -187,6 +184,8 @@ export const LandingPage: React.FC = () => {
               <span>Interactive Training</span>
             </button>
             <button
+              role="tab"
+              aria-selected={activeTab === 'osint'}
               onClick={() => setActiveTab('osint')}
               className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
                 activeTab === 'osint'
@@ -265,7 +264,7 @@ export const LandingPage: React.FC = () => {
                     Bite-Sized Lessons Employees Actually Complete
                   </h4>
                   <p className="text-slate-400 text-sm leading-relaxed">
-                    Say goodbye to boring 45-minute slide decks. SafeClick delivers 3 to 5 minute interactive lessons covering Passwords & MFA, Ransomware containment, Remote Wi-Fi safety, and Social Engineering.
+                    Say goodbye to boring 45-minute slide decks. SafeClick delivers 3 to 5 minute interactive lessons covering Passwords &amp; MFA, Ransomware containment, Remote Wi-Fi safety, and Social Engineering.
                   </p>
                   <ul className="space-y-3 text-xs text-slate-300">
                     <li className="flex items-center gap-2">
