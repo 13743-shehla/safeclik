@@ -1,8 +1,7 @@
 ﻿import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Shield, Lock, UserCheck, LogOut, LayoutDashboard, Terminal } from 'lucide-react';
+import { Shield, Lock, LogOut, LayoutDashboard } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import { Badge } from './Badge';
 
 export const Navbar: React.FC = () => {
   const { user, role, switchRole, logout, isAuthenticated } = useAuth();
@@ -31,8 +30,8 @@ export const Navbar: React.FC = () => {
         {/* Navigation links (desktop) */}
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
           <Link to="/" className="hover:text-cyan-400 transition-colors">Overview</Link>
-          <a href="/#features" className="hover:text-cyan-400 transition-colors">Capabilities</a>
-          <a href="/#simulation-preview" className="hover:text-cyan-400 transition-colors">Simulation Lab</a>
+          <Link to="/#features" className="hover:text-cyan-400 transition-colors">Capabilities</Link>
+          <Link to="/simulation" className="hover:text-cyan-400 transition-colors">Simulation Lab</Link>
           <Link to="/admin/osint" className="hover:text-cyan-400 transition-colors">OSINT Audit</Link>
         </nav>
 
