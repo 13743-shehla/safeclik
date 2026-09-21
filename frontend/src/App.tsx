@@ -58,6 +58,7 @@ export function App() {
             <Route path="/admin/reports" element={<AdminReportsPage />} />
             <Route path="/admin/osint" element={<OSINTPage />} />
             <Route path="/admin/simulation-lab" element={<SimulationLab />} />
+            <Route path="/simulation-lab" element={<SimulationLab />} />
           </Route>
 
           {/* Fallback */}
